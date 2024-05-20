@@ -18,13 +18,13 @@ public class MainActivity extends AppCompatActivity {
         Button playButton = findViewById(R.id.playButton);
         mediaPlayer = new MediaPlayer();
         try {
-            mediaPlayer.setDataSource("URL вашего аудиофайла");
+            mediaPlayer.setDataSource("https://rus.hitmotop.com/get/music/20231025/Jamie_Duffy_-_Solas_76886686.mp3");
             mediaPlayer.prepare(); // Можно использовать prepareAsync() для сетевых потоков
         } catch (IOException e) {
             e.printStackTrace();
         }
         playButton.setOnClickListener(new View.OnClickListener() {
-            @Override public void onClick(View v) {dfrgdfg
+            @Override public void onClick(View v) {
                 if (!mediaPlayer.isPlaying()) {
                     mediaPlayer.start();
                 } else {

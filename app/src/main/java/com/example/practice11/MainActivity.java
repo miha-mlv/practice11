@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         final Button moveButton = findViewById(R.id.moveButton);
         moveButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) {dfgdfgfd
                 ObjectAnimator moveAnim = ObjectAnimator.ofFloat(moveButton, "translationX", 0f, 300f);
                 moveAnim.setDuration(1000);
                 moveAnim.start();

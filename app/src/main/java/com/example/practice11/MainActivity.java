@@ -18,6 +18,6 @@ public class MainActivity extends AppCompatActivity {
         webView.setWebViewClient(new WebViewClient()); //Помогает приложению открывать ссылки внутри WebView, а не во внешнем браузере
         webView.getSettings().setJavaScriptEnabled(true); //Включаем поддержку JavaScript
 
-        webView.loadUrl("https://github.com/miha-mlv/practice10"); //Загрузка страницы
+        webView.loadUrl("https://github.com/miha-mlv/practice10"); //Загрузка страницы dfgdfgfd
     }
 }

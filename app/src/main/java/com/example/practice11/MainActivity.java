@@ -1,23 +1,45 @@
 package com.example.practice11;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.animation.ObjectAnimator;
 import android.os.Bundle;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
-
 public class MainActivity extends AppCompatActivity {
-
-    private WebView webView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        webView = (WebView) findViewById(R.id.webView);
-        webView.setWebViewClient(new WebViewClient()); //Помогает приложению открывать ссылки внутри WebView, а не во внешнем браузере
-        webView.getSettings().setJavaScriptEnabled(true); //Включаем поддержку JavaScript
+        ImageView imageView = findViewById(R.id.rotateImageView);
+        ObjectAnimator rotateAnim = ObjectAnimator.ofFloat(imageView, "rotation", 0f, 360f);
+        rotateAnim.setDuration(2000);
+        rotateAnim.setRepeatCount(ObjectAnimator.INFINITE);
+        rotateAnim.setRepeatMode(ObjectAnimator.RESTART);
+        rotateAnim.start();
+        final Button moveButton = findViewById(R.id.moveButton);
+        moveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ObjectAnimator moveAnim = ObjectAnimator.ofFloat(moveButton, "translationX", 0f, 300f);
+                moveAnim.setDuration(1000);
+                moveAnim.start();
+            }
+        });
 
-        webView.loadUrl("https://github.com/miha-mlv/practice10"); //Загрузка страницы dfgdfgfd
+        TextView scaleText = findViewById(R.id.scaleTextView);
+        scaleText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ObjectAnimator scaleX = ObjectAnimator.ofFloat(scaleText, "scaleX", 1f, 2f);
+                ObjectAnimator scaleY = ObjectAnimator.ofFloat(scaleText, "scaleY", 1f, 2f);
+                scaleX.setDuration(1000);
+                scaleY.setDuration(1000);
+                scaleX.start();
+                scaleY.start();
+            }
+        });
     }
 }

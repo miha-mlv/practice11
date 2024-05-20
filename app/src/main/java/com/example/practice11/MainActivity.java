@@ -8,38 +8,20 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.IOException;
 
+import android.os.Bundle;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
-    private MediaPlayer mediaPlayer;
+    private WebView webView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        webView = (WebView) findViewById(R.id.webView);
+        webView.setWebViewClient(new WebViewClient()); //Помогает приложению открывать ссылки внутри WebView, а не вовнешнем браузере
+        webView.getSettings().setJavaScriptEnabled(true); //Включаем поддержку JavaScript
 
-        Button playButton = findViewById(R.id.platButton);
-        mediaPlayer = new MediaPlayer();
-        try {
-            mediaPlayer.setDataSource("URL вашего аудиофайла");
-                    mediaPlayer.prepare(); // Можно использовать prepareAsync() для сетевых потоков
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        playButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!mediaPlayer.isPlaying()) {
-                    mediaPlayer.start();
-                } else {
-                    mediaPlayer.pause();
-                }
-            }
-        });
-    }
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (mediaPlayer != null) {
-            mediaPlayer.release();
-            mediaPlayer = null;
-        }
+        webView.loadUrl("https://github.com/miha-mlv/practice10"); //Загрузка страницы
     }
 }

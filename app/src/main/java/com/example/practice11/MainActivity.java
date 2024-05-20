@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         playButton.setOnClickListener(new View.OnClickListener() {
-            @Override public void onClick(View v) {
+            @Override public void onClick(View v) {dfrgdfg
                 if (!mediaPlayer.isPlaying()) {
                     mediaPlayer.start();
                 } else {
